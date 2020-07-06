@@ -36,6 +36,66 @@ Simple project that uses `Twitter` and `Zomato` APIs and hosted on `Heroku`.
    
    For other functions : [Click Here](https://www.npmjs.com/package/twit)
    
+   5. Go to  [Zomato Developer](https://developers.zomato.com/)
+   - Signup
+   - Get the `userKey`
+   
+      # Example
+ 
+   ```sh
+   var zomato = require('zomato');
+   var client = zomato.createClient({
+   userKey: '******************',//as obtained from [Zomato API](https://developers.zomato.com/apis)
+   });
+   ````
+   
+  ## Get Foodie and Nightlife Index, list of popular cuisines and nearby restaurants around the given coordinates
+  ```sh
+  client.getGeocode({lat:"28.613939", lon:"77.209021"}, function(err, result){
+    if(!err){
+      console.log(result);
+    }else {
+      console.log(err);
+    }
+   });
+   ```
+   For other functions : [Click Here](https://www.npmjs.com/package/zomato)
+   
+   # Hosting on Heroku
+   
+   - Go to [Heroku](https://www.heroku.com/) and Sign Up
+   - Click on `NodeJS` in OFFICIALLY SUPPORTED LANGUAGES list
+   - Create a new app and Name it
+   - Download and install the Heroku CLI
+   
+ ###  Initialize a git repository in a new or existing directory
+   
+```sh
+$ cd my-project/
+$ git init
+$ heroku git:remote -a appName
+```
+
+## Deploy your application
+### Commit your code to the repository and deploy it to Heroku using Git.
+```sh
+$ git add .
+$ git commit -am "make it better"
+$ git push heroku master
+```
+
+### Thats it!! Your server is hosted with `SSL` and the CLI will provide the URL for your Server
+
+# Demo
+
+My Server URL : `https://happyenings.herokuapp.com`
+
+- [https://happyenings.herokuapp.com/api/v1/zomato/trichy](https://happyenings.herokuapp.com/api/v1/zomato/trichy)
+
+- [https://happyenings.herokuapp.com/api/v1/twitter/corona](https://happyenings.herokuapp.com/api/v1/twitter/trichy)
+
+ Check my client [Happyenings](https://happyenings.web.app)
 
 
-
+    
+    
